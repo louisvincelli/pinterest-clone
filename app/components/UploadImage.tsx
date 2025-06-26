@@ -29,7 +29,6 @@ function UploadImage({setFile}) {
              className="hidden"  
              onChange={(e)=>{setFile(e.target.files[0]);
              setSelectedFile(e.target.files[0])}} />
-        
         </label>
     </div>
   );
