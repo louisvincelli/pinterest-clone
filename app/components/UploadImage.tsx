@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { HiArrowUpCircle } from "react-icons/hi2";
 
 function UploadImage({setFile}) {
+    //selectfile
     const [selectedFile, setSelectedFile] = useState();
   return (
      <div className='h-[450px] bg-[#e9e9e9]
