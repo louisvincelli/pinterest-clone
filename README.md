@@ -44,8 +44,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/louisvincelli/bizniz.git
-cd bizniz
+git clone https://github.com/louisvincelli/pinterest-clone.git
+cd pinterest-clone
 ```
 
 **Installation**
@@ -55,17 +55,6 @@ Install the project dependencies using npm:
 ```bash
 npm install
 ```
-
-**Set Up Environment Variables**
-
-You'll need a Google Maps API key(with Places and Maps Javascript APIs enabled). Create a file named `.env.local`:
-
-```env
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
-
-```
-
-Replace the placeholder values with your credentials. You can obtain these credentials by signing up on the [Google Cloud Console](https://cloud.google.com/).
 
 **Running the Project**
 
