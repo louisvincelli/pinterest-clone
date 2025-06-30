@@ -7,9 +7,9 @@ function UserTag() {
     const {data:session} = useSession();
   return (
     <div className='mt-8'>
-        {session?
+        {session?.user?
         <div className='flex gap-4'>
-            <Image src={session?.user.image}
+            <Image src={session.user.image || ''}
             alt='userImage'
             width={50}
             height={50}

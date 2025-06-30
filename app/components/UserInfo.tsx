@@ -1,7 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
 
-function UserInfo({userInfo}) {
+interface UserInfoProps {
+  userInfo: {
+    userImage: string;
+    userName: string;
+    email: string;
+  };
+}
+
+function UserInfo({userInfo}: UserInfoProps) {
     //console.log(userInfo);
   return (
     <div className='flex flex-col item-center'>

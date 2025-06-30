@@ -2,7 +2,7 @@ import React from 'react';
 
 function PinBuilder() {
   return (
-    <div>PinBUilder</div>
+    <div className='text-black'>PinBuilder</div>
   );
 };
 

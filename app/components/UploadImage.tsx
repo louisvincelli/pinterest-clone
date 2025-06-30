@@ -2,9 +2,13 @@ import { useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import { HiArrowUpCircle } from "react-icons/hi2";
 
-function UploadImage({setFile}) {
+interface UploadImageProps {
+  setFile: (file: File | null) => void;
+}
+
+function UploadImage({ setFile }: UploadImageProps) {
     //selectfile
-    const [selectedFile, setSelectedFile] = useState();
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
   return (
      <div className='h-[450px] bg-[#e9e9e9]
     rounded-lg'>
@@ -28,8 +32,11 @@ function UploadImage({setFile}) {
             />:null}
             <input id="dropzone-file" type="file"
              className="hidden"  
-             onChange={(e)=>{setFile(e.target.files[0]);
-             setSelectedFile(e.target.files[0])}} />
+             onChange={(e) => {
+               const file = e.target.files?.[0] || null;
+               setFile(file);
+               setSelectedFile(file);
+             }} />
         </label>
     </div>
   );

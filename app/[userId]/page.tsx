@@ -4,9 +4,19 @@ import React, { useEffect, useState } from 'react';
 import app from './../Shared/firebaseConfig';
 import UserInfo from '../components/UserInfo';
 
-function Profile({params}) {
+interface ProfileParams {
+  userId: string;
+}
+
+interface UserInfoData {
+  userImage: string;
+  userName: string;
+  email: string;
+}
+
+function Profile({params}: {params: ProfileParams}) {
     const db = getFirestore(app);
-    const [userInfo, setUserInfo] = useState();
+    const [userInfo, setUserInfo] = useState<UserInfoData | null>(null);
 
     useEffect(()=>{
         console.log(params.userId.replace('&40','@'))
@@ -16,12 +26,13 @@ function Profile({params}) {
         }
     },[params]);
 
-    const getUserInfo= async(email)=>{
+    const getUserInfo= async(email: string)=>{
         const docRef = doc(db, "user", email);
         const docSnap = await getDoc(docRef);
 
         if(docSnap.exists()) {
             console.log("doc data:", docSnap.data());
+            setUserInfo(docSnap.data() as UserInfoData);
         } else {
             //docsnap.data() will be undefined in this case
             console.log("No such document!");

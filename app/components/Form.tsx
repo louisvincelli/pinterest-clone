@@ -6,10 +6,10 @@ import UserTag from './UserTag';
 
 function Form() {
     const {data:session} = useSession();
-    const [title,setTitle] = useState();
-    const [desc, setDesc] = useState();
-    const [link,setLink] = useState();
-    const [file,setFile] = useState();
+    const [title,setTitle] = useState<string>('');
+    const [desc, setDesc] = useState<string>('');
+    const [link,setLink] = useState<string>('');
+    const [file,setFile] = useState<File | null>(null);
 
     const onSave=()=>{
         console.log("Title: ",title,"Desc",desc,"link",link);
@@ -28,7 +28,7 @@ function Form() {
                     <input type='text' placeholder='Add your title' onChange={(e)=>setTitle(e.target.value)} className='text-[35px] outline-none font-bold w-full border-b-[2px] border-gray-400 placeholder-gray-400'/>
                     <h2 className='text-[12px] w-full text-gray-400'>The first 40 Characters are what usually show up in feeds</h2>
                     <UserTag/>
-                    <textarea type="text" onChange={(e)=>setDesc(e.target.value)} placeholder='Tell everyone what your pin is about' className='outline-none w-full mt-8 pb-4 text-[14px]
+                    <textarea onChange={(e)=>setDesc(e.target.value)} placeholder='Tell everyone what your pin is about' className='outline-none w-full mt-8 pb-4 text-[14px]
                     border-b-[2px] border-gray-400 placeholder-gray-400'/>
                     <input type='text' placeholder='Add a Destination Link' onChange={(e)=>setLink(e.target.value)} className='outline-none w-full pb-4 mt-[90px]
                     border-b-[2px] border-gray-400 placeholder-gray-400'/>
